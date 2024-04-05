@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
+import { BASE_URL } from "../helpers/constants";
 
 function Login() {
   async function logInData() {
     try {
-      const data = await fetch("http://206.189.91.54/api/v1/auth/sign_in", {
+      const data = await fetch(`${BASE_URL}/auth/sign_in`, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -18,7 +19,7 @@ function Login() {
       const uid = data.headers.get('uid');
       const expiry = data.headers.get('expiry');
       console.log(uid, expiry, client, access_token);
-      
+
       const response = await data.json();
       console.log(response);
       if (response.errors) {

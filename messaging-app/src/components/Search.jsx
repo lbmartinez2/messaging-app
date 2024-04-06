@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { getAllUsers } from "../App";
+import { useDebouncedCallback } from 'use-debounce';
 
 function Search(props) {
   const [users, setUsers] = useState([]);
-
+  const [filteredUsers, setfilteredUsers] = useState([]);
+  const debouncedChange = useDebouncedCallback(handleChange, 500) 
+  
   useEffect(() => {
     async function fetchData() {
       try {
@@ -16,12 +19,18 @@ function Search(props) {
     fetchData();
   }, []);
 
+  function handleChange(e) {
+    setfilteredUsers(() => {
+        return users.filter(user => user.email.includes(e.target.value));
+    })
+  }
+
   return (
     <>
-      <input type="text" />
+      <input type="text" onChange={(e) => debouncedChange(e)}/>
       <div>
         <ul>
-            {users &&users.map((user, index) => <li key={index}>{user.email}</li>)}
+            {filteredUsers && filteredUsers.map((user, index) => <li key={index}>{user.email}</li>)}
         </ul>
       </div>
     </>

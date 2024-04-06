@@ -3,11 +3,10 @@ import "./App.css";
 import { HeaderContext } from "./main";
 import { BASE_URL } from "./helpers/constants";
 import { getAuthHeaders } from "./helpers/functions";
+import Search from "./components/Search";
 
-
-function App() {
-  const headers = getAuthHeaders();
-  async function getAllUsers() {
+  export const headers = getAuthHeaders();
+  export async function getAllUsers() {
   
     try {
         const data = await fetch(`${BASE_URL}/users`, {
@@ -17,7 +16,7 @@ function App() {
             },
         })
         const response = await data.json();
-        console.log(response.data);
+        // console.log(response.data);
         return response;
     }
     catch (err) {
@@ -25,14 +24,18 @@ function App() {
     }
   }
 
+function App() {
+  
+
 useEffect(() => {
   getAllUsers();
-  console.log(headers);
+  // console.log(headers);
 })
 
   return (
     <>
       <div>Homepage</div>
+      <Search />
     </>
   );
 }

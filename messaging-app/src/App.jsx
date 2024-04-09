@@ -4,6 +4,8 @@ import { HeaderContext } from "./main";
 import { BASE_URL } from "./helpers/constants";
 import { getAuthHeaders } from "./helpers/functions";
 import Search from "./components/Search";
+import MessageInput from "./components/MessageInput";
+import MessageRetrieve from "./components/MessageRetrieve";
 
 export const headers = getAuthHeaders();
 export async function getAllUsers() {
@@ -25,7 +27,6 @@ export async function getAllUsers() {
 function App() {
   return (
     <>
-      <div className="navbar"></div>
       <div className="app-container">
         <div className="side-nav-container">
           <div className="side-nav-1">Icons here</div>
@@ -35,7 +36,8 @@ function App() {
           </div>
         </div>
         <div className="content-container">
-          content here
+          <MessageRetrieve />
+          <MessageInput />
         </div>
       </div>
     </>

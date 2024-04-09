@@ -1,27 +1,32 @@
-/* .app-container {
-    border: 1px solid red;
-    height: 90%;
-    width: 90%;
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
-
-.side-nav-container {
-    border: 1px solid red;
-    height: 100%;
-    width: 30%;
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
-
-.content-container {
-    display: flex;
-    flex-grow: 1;
-}
-
-.side-nav-2 {
+.message-container {
     display: flex;
     flex-direction: column;
-} */
+    height: 80%;
+}
+
+.message-input-container {
+    height: 10%;
+}
+
+.message-input {
+    width: 80%;
+    min-height: 1rem;
+    padding: 0.5rem 1rem;
+    text-wrap: wrap;
+}
+
+.message-btn {
+    height: 2.25rem;
+    padding: none;
+}
+
+.message-body {
+    height: 100%;
+}
+
+.message-header {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}

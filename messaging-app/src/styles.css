@@ -22,6 +22,11 @@
 
 .message-body {
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 2rem;
+    gap: 0.5rem;
+    overflow-y: scroll;
 }
 
 .message-header {
@@ -29,4 +34,21 @@
     text-align: center;
     align-items: center;
     justify-content: center;
+}
+
+.receiver-msg, .sender-msg {
+    list-style: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+}
+
+.receiver-msg {
+    background-color: hsl(205, 100%, 94%);
+    width: fit-content;
+}
+
+.sender-msg {
+    background-color: hsl(201, 76%, 69%);
+    align-self: flex-end;
+    width: fit-content;
 }

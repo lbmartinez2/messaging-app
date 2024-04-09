@@ -11,6 +11,7 @@ export const headers = getAuthHeaders();
 export async function getAllUsers() {
   try {
     const data = await fetch(`${BASE_URL}/users`, {
+      method: 'GET',
       headers: {
         "Content-Type": "application/json",
         ...headers,
@@ -29,10 +30,17 @@ function App() {
     <>
       <div className="app-container">
         <div className="side-nav-container">
-          <div className="side-nav-1">Icons here</div>
+          <div className="side-nav-1">
+            <div className="logo">Logo</div>
+            <div className="channels">Channels</div>
+            <div className="messages">Messages</div>
+            <div className="log-out">Log Out</div>
+          </div>
           <div className="side-nav-2">
-            <Search /> <button className="channels-btn"> Channels </button>
-            <button className="messages-btn"> Direct Messages </button>
+      
+            <button className="channels-btn"> Channels </button>
+            <Search /> 
+            <button className="messages-btn"> Message </button>
           </div>
         </div>
         <div className="content-container">

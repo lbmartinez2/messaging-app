@@ -1,8 +1,9 @@
 import React from 'react'
 import { BASE_URL } from '../helpers/constants';
+import { getAuthHeaders } from '../helpers/functions';
 
 function MessageInput() {
-    const headers = JSON.parse(localStorage.getItem('headers')) || null;
+    const headers = getAuthHeaders();
    
 
 
@@ -17,18 +18,17 @@ function MessageInput() {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
-              "access-token": headers["access-token"],
-              client: headers.client,
-              expiry: headers.expiry,
-              uid: headers.uid
+              ...headers
             },
             body: JSON.stringify({
-              receiver_id: 1,
-              receiver_class: "user",
+              "receiver_id": 4903,
+              "receiver_class": "User",
               body: message.get("message"),
             }),
           });
-          console.log(message.get("message"))
+
+          const response = await data.json();
+          console.log(response);
         }
         catch (err) {
             console.error(err);

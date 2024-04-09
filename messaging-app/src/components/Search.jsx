@@ -20,14 +20,15 @@ function Search(props) {
   }, []);
 
   function handleChange(e) {
-    setfilteredUsers(() => {
+      setfilteredUsers(() => {
         return users.filter(user => user.email.includes(e.target.value));
-    })
+      })
+  
   }
 
   return (
     <>
-      <input type="text" onChange={(e) => debouncedChange(e)}/>
+      <input type="text" className="search-input" onChange={(e) => debouncedChange(e)}/>
       <div>
         <ul>
             {filteredUsers && filteredUsers.map((user, index) => <li key={index}>{user.email}</li>)}

@@ -30,12 +30,17 @@ function Login() {
         expiry: data.headers.get("expiry")
       }
 
+  
+
       localStorage.setItem("headers", JSON.stringify(authHeaders));
       handleHeadersChange(authHeaders);
 
     //   console.log(uid, expiry, client, access_token);
 
       const response = await data.json();
+      const activeUser = await response.data.id;
+      console.log(activeUser)
+      localStorage.setItem("activeUser", activeUser);
       return {response, authHeaders};
 
       //   if (response.errors) {
@@ -45,8 +50,6 @@ function Login() {
       console.error(err);
     }
   }
-
-  useEffect(() => {console.log(headers)}, [headers])
 
   async function handleSubmit(e) {
     e.preventDefault();

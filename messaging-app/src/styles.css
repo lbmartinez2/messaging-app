@@ -1,0 +1,27 @@
+/* .app-container {
+    border: 1px solid red;
+    height: 90%;
+    width: 90%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.side-nav-container {
+    border: 1px solid red;
+    height: 100%;
+    width: 30%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.content-container {
+    display: flex;
+    flex-grow: 1;
+}
+
+.side-nav-2 {
+    display: flex;
+    flex-direction: column;
+} */

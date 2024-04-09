@@ -2,6 +2,7 @@ import React, { createContext, useState } from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
+import "./styles.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from "./pages/Login.jsx";
 

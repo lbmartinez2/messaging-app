@@ -1,10 +1,11 @@
 import "./App.css";
 import { BASE_URL } from "./helpers/constants";
-import { getAuthHeaders, setCurrentId } from "./helpers/functions";
+import { getAuthHeaders, setCurrentId, setName } from "./helpers/functions";
 import Search from "./components/Search";
 import { Link, Outlet } from "react-router-dom";
 import ChannelsGet from "./components/ChannelsGet";
 import CreateChannels from "./components/CreateChannels";
+import { useState } from "react";
 
 export const headers = getAuthHeaders();
 export async function getAllUsers() {
@@ -25,8 +26,11 @@ export async function getAllUsers() {
 }
 
 function App() {
+
+
   const handleClick = (e) => {
     setCurrentId(4927);
+    setName("Messages");
   }
 
 
@@ -47,7 +51,7 @@ function App() {
               <Link to="channels">Channels</Link>
             </button>
             <CreateChannels />
-            <ChannelsGet />
+            <ChannelsGet class="Channel"/>
             <button className="messages-btn">
               <Link to="messages" onClick={handleClick}>Messages</Link>
             </button>

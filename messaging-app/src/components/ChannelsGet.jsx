@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { getAuthHeaders, setCurrentId } from "../helpers/functions";
+import { getAuthHeaders, setCurrentId, setName } from "../helpers/functions";
 import { BASE_URL } from "../helpers/constants";
 import { Link } from "react-router-dom";
 
-function ChannelsGet() {
+function ChannelsGet(props) {
   const headers = getAuthHeaders();
   const [channels, setChannels] = useState([]);
+
+//   const handleClick = (e, channelClass) => {
+//     updateCurrentName
+//   }
 
   async function getChannels() {
     try {
@@ -27,20 +31,19 @@ function ChannelsGet() {
     getChannels();
   }, []);
 
-//   const handleClick = (e) => {
-//     console.log(e.target);
-//   }
-
   return (
     <>
       <ul className="channel-list">
-        {channels.map((channel, index) => {
+        {channels ? channels.map((channel, index) => {
           return (
-            <li className="channel-list-item" key={index} onClick={() => setCurrentId(channel.id)}>
+            <li className="channel-list-item" key={index} onClick={() => {
+                setCurrentId(channel.id);
+                setName(channel.name)
+            }}>
               <Link to={`channels/${channel.id}`}>{channel.name}</Link>
             </li>
           );
-        })}
+        }) : null}
       </ul>
     </>
   );

@@ -7,9 +7,17 @@ import { BASE_URL } from "../helpers/constants";
   }
 
   export function setCurrentId(id) {
-    const currentID = localStorage.setItem("current_id", id);
+    localStorage.setItem("current_id", id);
   }
 
   export function getCurrentId() {
-    const currentID = JSON.parse(localStorage.getItem("current_id"));
+    return JSON.parse(localStorage.getItem("current_id"));
+  }
+
+  export function setName(name) {
+    localStorage.setItem("name", name);
+  }
+
+  export function getName() {
+    return localStorage.getItem("name");
   }

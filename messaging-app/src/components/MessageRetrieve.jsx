@@ -1,19 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { BASE_URL } from "../helpers/constants";
-import { getAuthHeaders, getCurrentId } from "../helpers/functions";
+import { getAuthHeaders, getCurrentId, getName } from "../helpers/functions";
 
 function MessageRetrieve(props) {
-  // async function handleReceive() {
+
 
   const [messages, setMessages] = useState([]);
   const activeUser = Number(localStorage.getItem("activeUser"));
-  const currentID = getCurrentId();
+  const currentName = getName();
+  
+  
   useEffect(() => {
     async function fetchMessages() {
+      const currentID = getCurrentId(); 
+
       try {
         const headers = getAuthHeaders();
+        
         const response = await fetch(
-          `${BASE_URL}/messages?receiver_id=${currentID}&receiver_class=${props.class}`,
+          `${BASE_URL}/messages?receiver_id=${currentID}&receiver_class=${props.class || "Channel"}`,
           {
             method: "GET",
             headers: {
@@ -24,18 +29,18 @@ function MessageRetrieve(props) {
         );
         const data = await response.json();
         setMessages(data.data);
-        // console.log(data.data);
+
       } catch (err) {
         console.error(err);
       }
     }
-
     fetchMessages();
+    
   }, []);
 
   return (
     <div className="message-container">
-      <div className="message-header">Receiver Name</div>
+        <div className="message-header">{currentName}</div>
       <ul className="message-body">
         {messages
           ? messages.map((message, index) => (

@@ -47,9 +47,9 @@ function MessageRetrieve(props) {
               <li
                 key={index}
                 className={
-                  message.receiver.id === activeUser
-                    ? "receiver-msg"
-                    : "sender-msg"
+                  message.sender.id === activeUser
+                    ? "sender-msg"
+                    : "receiver-msg"
                 }
               >
                 {message.body}

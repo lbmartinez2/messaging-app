@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { getAuthHeaders, setCurrentId, setName } from "../helpers/functions";
 import { BASE_URL } from "../helpers/constants";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function ChannelsGet(props) {
   const headers = getAuthHeaders();
   const [channels, setChannels] = useState([]);
-
-//   const handleClick = (e, channelClass) => {
-//     updateCurrentName
-//   }
 
   async function getChannels() {
     try {
@@ -20,7 +16,6 @@ function ChannelsGet(props) {
         },
       });
       const response = await data.json();
-      console.log(response.data);
       setChannels(response.data);
     } catch (err) {
       console.error(err);
@@ -30,20 +25,27 @@ function ChannelsGet(props) {
   useEffect(() => {
     getChannels();
   }, []);
+  
 
   return (
     <>
       <ul className="channel-list">
-        {channels ? channels.map((channel, index) => {
-          return (
-            <li className="channel-list-item" key={index} onClick={() => {
-                setCurrentId(channel.id);
-                setName(channel.name)
-            }}>
-              <Link to={`channels/${channel.id}`}>{channel.name}</Link>
-            </li>
-          );
-        }) : null}
+        {channels
+          ? channels.map((channel, index) => {
+              return (
+                <li
+                  className="channel-list-item"
+                  key={index}
+                  onClick={() => {
+                    setCurrentId(channel.id);
+                    setName(channel.name);
+                  }}
+                >
+                  <Link to={`channels/${channel.id}`}>{channel.name}</Link>
+                </li>
+              );
+            })
+          : null}
       </ul>
     </>
   );

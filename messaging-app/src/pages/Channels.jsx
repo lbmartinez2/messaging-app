@@ -8,7 +8,7 @@ function Channels() {
   return (
     <>
         <MessageRetrieve class="Channel"/>
-        <MessageInput />
+        <MessageInput class="Channel"/>
     </>
   )
 }

@@ -48,10 +48,10 @@ function App() {
           <div className="side-nav-2">
       
             <button className="channels-btn">
-              <Link to="channels">Channels</Link>
+              Channels
             </button>
             <CreateChannels />
-            <ChannelsGet class="Channel"/>
+            <ChannelsGet />
             <button className="messages-btn">
               <Link to="messages" onClick={handleClick}>Messages</Link>
             </button>

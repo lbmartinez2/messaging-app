@@ -21,3 +21,6 @@ import { BASE_URL } from "../helpers/constants";
   export function getName() {
     return localStorage.getItem("name");
   }
+
+  
+  

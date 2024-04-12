@@ -9,6 +9,7 @@ import ErrorPage from "./pages/ErrorPage.jsx";
 import Messages from "./pages/Messages.jsx";
 import Channels from "./pages/Channels.jsx";
 import { getCurrentId } from "./helpers/functions.js";
+import PrivateRoute from "./components/PrivateRoute.jsx";
 
 
 export const HeaderContext = createContext(null);
@@ -29,11 +30,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/app",
-    element: <App />,
+    element: <PrivateRoute><App /></PrivateRoute> ,
     errorElement: <ErrorPage />,
     children: [
       {
-        path: `channels/:${currentID}`,
+        path: `channels/:id`,
         element: <Channels />
         },
       {

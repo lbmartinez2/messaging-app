@@ -4,7 +4,7 @@ import { getAuthHeaders, getCurrentId } from "../helpers/functions";
 
 function MessageInput(props) {
   const headers = getAuthHeaders();
-  console.log("class=" + props.class);
+  // console.log("class=" + props.class);
 
   async function handleSendMessage(e, receiverClass) {
     e.preventDefault();
@@ -26,7 +26,7 @@ function MessageInput(props) {
       });
 
       const response = await data.json();
-      console.log(response);
+      // console.log(response);
     } catch (err) {
       console.error(err);
     }

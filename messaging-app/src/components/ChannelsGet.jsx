@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 import { getAuthHeaders, setCurrentId, setName } from "../helpers/functions";
 import { BASE_URL } from "../helpers/constants";
 import { Link, useNavigate } from "react-router-dom";
+import ChannelItem from "./ChannelItem";
 
 function ChannelsGet(props) {
   const headers = getAuthHeaders();
   const [channels, setChannels] = useState([]);
 
+   
   async function getChannels() {
     try {
       const data = await fetch(`${BASE_URL}/channels`, {
@@ -33,16 +35,9 @@ function ChannelsGet(props) {
         {channels
           ? channels.map((channel, index) => {
               return (
-                <li
-                  className="channel-list-item"
-                  key={index}
-                  onClick={() => {
-                    setCurrentId(channel.id);
-                    setName(channel.name);
-                  }}
-                >
-                  <Link to={`channels/${channel.id}`}>{channel.name}</Link>
-                </li>
+                <Link key={channel.id} to={`channels/${channel.id}`}>
+                    <ChannelItem channelName={channel.name} channelId={channel.id} index={channel.id}/>
+                </Link>
               );
             })
           : null}

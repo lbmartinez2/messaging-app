@@ -22,5 +22,22 @@ import { BASE_URL } from "../helpers/constants";
     return localStorage.getItem("name");
   }
 
+  export async function getRecentDMs() {
+    const headers = getAuthHeaders();
+    try {
+      const data = await fetch(`${BASE_URL}/users/recent`, {
+        headers: {
+          "Content-Type": "application/json",
+          ...headers,
+        },
+      });
+      const response = await data.json();
+      console.log(response.data);
+    } catch (err) {
+      console.error(err);
+    }
+  }
+  
+
   
   

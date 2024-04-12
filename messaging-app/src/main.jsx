@@ -5,6 +5,7 @@ import "./index.css";
 import "./styles.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from "./pages/Login.jsx";
+import ErrorPage from "./pages/ErrorPage.jsx";
 
 
 export const HeaderContext = createContext(null);
@@ -25,6 +26,11 @@ const router = createBrowserRouter([
     path: "/app",
     element: <App />,
   },
+  {
+    path: "/",
+    element: <App />,
+    errorElement: <ErrorPage />,
+  }
 ]);
 
 function Main() {

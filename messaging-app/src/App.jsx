@@ -6,6 +6,7 @@ import { getAuthHeaders } from "./helpers/functions";
 import Search from "./components/Search";
 import MessageInput from "./components/MessageInput";
 import MessageRetrieve from "./components/MessageRetrieve";
+import { Outlet } from "react-router-dom";
 
 export const headers = getAuthHeaders();
 export async function getAllUsers() {
@@ -44,8 +45,7 @@ function App() {
           </div>
         </div>
         <div className="content-container">
-          <MessageRetrieve />
-          <MessageInput />
+          <Outlet />
         </div>
       </div>
     </>

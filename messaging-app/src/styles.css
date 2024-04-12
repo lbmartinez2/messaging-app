@@ -43,12 +43,35 @@
 }
 
 .receiver-msg {
-    background-color: hsl(205, 100%, 94%);
+    background-color: #A3BAC3;
     width: fit-content;
 }
 
 .sender-msg {
-    background-color: hsl(201, 76%, 69%);
+    background-color:#01A7C2;
     align-self: flex-end;
     width: fit-content;
+}
+
+.search-input {
+    align-self: center;
+    width: auto !important;
+}
+
+.search-user {
+    align-self: center;
+    width: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.search-container {
+    padding: none;
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
 }

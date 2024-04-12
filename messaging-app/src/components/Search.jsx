@@ -29,11 +29,10 @@ function Search(props) {
   return (
     <>
       <input type="text" className="search-input" onChange={(e) => debouncedChange(e)}/>
-      <div>
-        <ul>
-            {filteredUsers && filteredUsers.map((user, index) => <li key={index}>{user.email}</li>)}
+        <ul className="search-container">
+            {filteredUsers && filteredUsers.map((user, index) => <li className="search-user" key={index}>{user.email}</li>)}
         </ul>
-      </div>
+
     </>
   );
 }

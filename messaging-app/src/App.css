@@ -19,19 +19,37 @@ body, html, #root {
 .app-container {
     width: 100%;
     display: flex;
+    gap: 0.5rem;
+    /* justify-content: space-between; */
 }
 
 .side-nav-container {
-    width: 25%;
     display: flex;
+    gap: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+.side-nav-1 {
+    background-color: #eaebed;
+    padding: 1rem 0.5rem;
+    border-radius: 0.5rem;
 }
 
 .side-nav-2 {
-    DISPLAY: FLEX;
+    width: 200px;
+    display: flex;
     flex-direction: column;
+    background-color: #eaebed;
+    padding: 1rem 0.5rem;
+    border-radius: 0.5rem;
 }
 
 .content-container {
+    display: flex;
+    flex-direction: column;
+    background-color: #eaebed;
     flex-grow: 1;
-    height: 100%;
+    padding: 1rem 0.5rem;
+    border-radius: 0.5rem;
 }
+

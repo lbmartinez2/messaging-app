@@ -6,6 +6,7 @@ import { Link, Outlet } from "react-router-dom";
 import ChannelsGet from "./components/ChannelsGet";
 import CreateChannels from "./components/CreateChannels";
 import { useState } from "react";
+import MessageUser from "./components/MessageUser";
 
 export const headers = getAuthHeaders();
 export async function getAllUsers() {
@@ -55,6 +56,7 @@ function App() {
             <button className="messages-btn">
               <Link to="messages" onClick={handleClick}>Messages</Link>
             </button>
+            <MessageUser />
           </div>
         </div>
         <div className="content-container">

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BASE_URL } from "../helpers/constants";
-import { getAuthHeaders, getCurrentId, getName, getRecentDMs } from "../helpers/functions";
+import { getAuthHeaders, getChannelMembers, getCurrentId, getName, getRecentDMs, getUserChannels } from "../helpers/functions";
 
 function MessageRetrieve(props) {
 
@@ -36,6 +36,7 @@ function MessageRetrieve(props) {
     }
     fetchMessages();
     getRecentDMs();
+
   });
 
   return (

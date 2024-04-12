@@ -33,7 +33,7 @@ function ChannelsGet(props) {
     <>
       <ul className="channel-list">
         {channels
-          ? channels.map((channel, index) => {
+          ? channels.map((channel) => {
               return (
                 <Link key={channel.id} to={`channels/${channel.id}`}>
                     <ChannelItem channelName={channel.name} channelId={channel.id} index={channel.id}/>

@@ -1,14 +1,15 @@
 import React from 'react'
 import { BASE_URL } from '../helpers/constants';
-import { getAuthHeaders } from '../helpers/functions';
+import { getAuthHeaders, getCurrentId } from '../helpers/functions';
 
-function MessageInput() {
+function MessageInput(props) {
     const headers = getAuthHeaders();
    
 
 
     async function handleSendMessage(e) {
         e.preventDefault();
+        const currentID = getCurrentId();
 
         const message = new FormData(e.target);
 
@@ -21,8 +22,8 @@ function MessageInput() {
               ...headers
             },
             body: JSON.stringify({
-              "receiver_id": 4903,
-              "receiver_class": "User",
+              "receiver_id": currentID,
+              "receiver_class": props.class,
               body: message.get("message"),
             }),
           });

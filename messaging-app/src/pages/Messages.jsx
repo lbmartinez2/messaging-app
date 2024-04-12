@@ -5,8 +5,8 @@ import MessageInput from '../components/MessageInput'
 function Messages() {
   return (
     <>
-        <MessageRetrieve />
-        <MessageInput />
+        <MessageRetrieve class="User" />
+        <MessageInput class="User" />
     </>
   )
 }

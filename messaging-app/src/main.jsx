@@ -8,6 +8,7 @@ import Login from "./pages/Login.jsx";
 import ErrorPage from "./pages/ErrorPage.jsx";
 import Messages from "./pages/Messages.jsx";
 import Channels from "./pages/Channels.jsx";
+import { getCurrentId } from "./helpers/functions.js";
 
 
 export const HeaderContext = createContext(null);
@@ -18,6 +19,8 @@ const headersInitValue = {
   expiry: null,
   client: null,
 };
+
+const currentID = getCurrentId() || null;
 
 const router = createBrowserRouter([
   {
@@ -30,7 +33,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "channels",
+        path: `channels/:${currentID}`,
         element: <Channels />
         },
       {

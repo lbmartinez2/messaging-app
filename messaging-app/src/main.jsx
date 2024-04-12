@@ -6,6 +6,8 @@ import "./styles.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from "./pages/Login.jsx";
 import ErrorPage from "./pages/ErrorPage.jsx";
+import Messages from "./pages/Messages.jsx";
+import Channels from "./pages/Channels.jsx";
 
 
 export const HeaderContext = createContext(null);
@@ -25,12 +27,18 @@ const router = createBrowserRouter([
   {
     path: "/app",
     element: <App />,
-  },
-  {
-    path: "/",
-    element: <App />,
     errorElement: <ErrorPage />,
-  }
+    children: [
+      {
+        path: "channels",
+        element: <Channels />
+        },
+      {
+      path: "messages",
+      element: <Messages />
+      },
+    ]
+  },
 ]);
 
 function Main() {

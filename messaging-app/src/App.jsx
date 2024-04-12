@@ -1,12 +1,8 @@
-import { useContext, useEffect, useState } from "react";
 import "./App.css";
-import { HeaderContext } from "./main";
 import { BASE_URL } from "./helpers/constants";
 import { getAuthHeaders } from "./helpers/functions";
 import Search from "./components/Search";
-import MessageInput from "./components/MessageInput";
-import MessageRetrieve from "./components/MessageRetrieve";
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 export const headers = getAuthHeaders();
 export async function getAllUsers() {
@@ -39,9 +35,13 @@ function App() {
           </div>
           <div className="side-nav-2">
       
-            <button className="channels-btn"> Channels </button>
+            <button className="channels-btn">
+              <Link to="channels">Channels</Link>
+            </button>
             <Search /> 
-            <button className="messages-btn"> Message </button>
+            <button className="messages-btn">
+              <Link to="messages" >Messages</Link>
+            </button>
           </div>
         </div>
         <div className="content-container">

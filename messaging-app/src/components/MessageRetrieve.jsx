@@ -6,13 +6,16 @@ function MessageRetrieve(props) {
 
 
   const [messages, setMessages] = useState([]);
+  const [currentName, setCurrentName] = useState('');
   const activeUser = Number(localStorage.getItem("activeUser"));
-  const currentName = getName();
+
   
   
   useEffect(() => {
     async function fetchMessages() {
-      const currentID = getCurrentId(); 
+      const currentID =  await getCurrentId(); 
+      // console.log(currentID);
+   
 
       try {
         const headers = getAuthHeaders();
@@ -29,14 +32,14 @@ function MessageRetrieve(props) {
         );
         const data = await response.json();
         setMessages(data.data);
-
+        // console.log(currentID);
       } catch (err) {
         console.error(err);
       }
     }
     fetchMessages();
     getRecentDMs();
-
+    setCurrentName(getName());
   });
 
   return (

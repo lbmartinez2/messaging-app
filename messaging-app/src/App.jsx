@@ -19,7 +19,6 @@ export async function getAllUsers() {
       },
     });
     const response = await data.json();
-    // console.log(response.data);
     return response;
   } catch (err) {
     console.error(err);
@@ -47,15 +46,10 @@ function App() {
             <div className="log-out">Log Out</div>
           </div>
           <div className="side-nav-2">
-      
-            <button className="channels-btn">
-              Channels
-            </button>
             <CreateChannels />
+            <div className="channel-list-header">User Channels</div>
             <ChannelsGet />
-            <button className="messages-btn">
-              <Link to="messages" onClick={handleClick}>Messages</Link>
-            </button>
+            <div className="channel-list-header">Direct Messages</div>
             <MessageUser />
           </div>
         </div>

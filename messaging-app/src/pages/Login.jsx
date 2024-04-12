@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom"
 import { HeaderContext } from "../main";
 import { BASE_URL } from "../helpers/constants";
+import { setCurrentId } from "../helpers/functions";
 
 
 
@@ -40,8 +41,10 @@ function Login() {
       const response = await data.json();
       const activeUser = await response.data.id;
       console.log(activeUser)
-      localStorage.setItem("activeUser", activeUser);
+      localStorage.setItem("activeUser", await activeUser);
+      setCurrentId(await activeUser);
       return {response, authHeaders};
+      
 
       //   if (response.errors) {
       //     throw response.errors.full_messages[0];

@@ -21,7 +21,7 @@ const headersInitValue = {
   client: null,
 };
 
-const currentID = getCurrentId() || null;
+// const currentID = getCurrentId() || null;
 
 const router = createBrowserRouter([
   {
@@ -38,7 +38,7 @@ const router = createBrowserRouter([
         element: <Channels />
         },
       {
-      path: "messages",
+      path: `messages/:id`,
       element: <Messages />
       },
     ]

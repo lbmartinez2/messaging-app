@@ -123,3 +123,7 @@ li {
     background-color: #A3BAC3;
 }
 
+.channel-name-input, .search-input {
+    width: auto;
+}
+

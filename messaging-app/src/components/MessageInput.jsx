@@ -4,9 +4,9 @@ import { getAuthHeaders, getCurrentId } from "../helpers/functions";
 
 function MessageInput(props) {
   const headers = getAuthHeaders();
-  // console.log("class=" + props.class);
+  console.log(props.class);
 
-  async function handleSendMessage(e, receiverClass) {
+  async function handleSendMessage(e) {
     e.preventDefault();
     const currentID = getCurrentId();
     const message = new FormData(e.target);
@@ -20,13 +20,12 @@ function MessageInput(props) {
         },
         body: JSON.stringify({
           receiver_id: currentID,
-          receiver_class: "Channel",
+          receiver_class: props.class,
           body: message.get("message"),
         }),
       });
-
       const response = await data.json();
-      // console.log(response);
+    
     } catch (err) {
       console.error(err);
     }

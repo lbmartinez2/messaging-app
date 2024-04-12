@@ -11,7 +11,7 @@ import { BASE_URL } from "../helpers/constants";
   }
 
   export function getCurrentId() {
-    return JSON.parse(localStorage.getItem("current_id"));
+    return localStorage.getItem("current_id");
   }
 
   export function setName(name) {
@@ -69,7 +69,6 @@ import { BASE_URL } from "../helpers/constants";
         },
       });
       const response = await data.json();
-      // console.log(response.data);
       return response.data;
     } catch (err) {
       console.error(err);

@@ -70,8 +70,11 @@ function Login() {
   }
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
+    <div className="login-container">
+         <h1 className="login-header">Welcome! </h1>
+      <h3 className="login-subheader">Log-in your details to proceed.</h3>
+      <form onSubmit={handleSubmit} className="login-form">
+  
         <label htmlFor="email">Email</label>
         <input
           name="email"
@@ -80,7 +83,7 @@ function Login() {
           placeholder="Enter your email address"
           required
         />
-        <label htmlFor="password">Email</label>
+        <label htmlFor="password">Password</label>
         <input
           name="password"
           type="password"
@@ -95,7 +98,7 @@ function Login() {
         <span>Don't have an account yet?</span>
         <Link to="/sign-up" className="sign-up-link">Sign-up Here!</Link>
       </div>
-    </>
+    </div >
   );
 }
 

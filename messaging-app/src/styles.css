@@ -187,6 +187,79 @@
     width: 70%;
 }
 
+.login-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    height: 25%;
+    width: 30%;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    color:#011638;
+    border-radius: 0.5rem;
+    text-align: left;
+    padding: 2rem;
+    margin: 1rem 0;
+    box-shadow: 0.5rem 1rem 1rem #0116382f;
+}
+
+.login-header {
+    font-size: 3rem;
+    font-weight: 500;;
+}
+
+.login-subheader {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    font-weight: 300;;
+}
+
+
+.login-form label{
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.login-form input{
+    width: 100%;
+    padding: 0.25rem 0.5rem;
+    border: none;
+    border-bottom: 2px solid #011638;
+    border-radius: 0.25rem;
+    outline: none;
+}
+
+.login-form input:focus {
+    border-bottom: 2px solid #ECA400;
+}
+
+.sign-up-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.sign-up-container .sign-up-link {
+    color: #011638;
+    text-decoration: underline;
+    padding: 0.5rem;
+}
+
+.sign-up-container .sign-up-link:hover {
+    color: #ECA400;
+}
+
 
 
 

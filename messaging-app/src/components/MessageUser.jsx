@@ -3,13 +3,14 @@ import { BASE_URL } from "../helpers/constants";
 import { getChannelMembers, getUserChannels, setCurrentId } from "../helpers/functions";
 import { getAllUsers } from "../App";
 import { useDebouncedCallback } from "use-debounce";
-import { Link } from "react-router-dom";
+import { Link, defer } from "react-router-dom";
 import UserItem from "./UserItem";
 
 function MessageUser() {
   const debouncedChange = useDebouncedCallback(handleChange, 500);
   const [filteredUsers, setFilteredUsers] = useState([]);
   const [friendList, setfilteredFriends] = useState([]);
+  const [seachTerm, setSearchTerm] = useState("");
 
   async function filterDMSearch() {
     setFilteredUsers(JSON.parse(localStorage.getItem("filteredUsers")));
@@ -22,6 +23,9 @@ function MessageUser() {
       const allMembers = allChannelMembers.flatMap(
         (channel) => channel.channel_members
       );
+
+
+
       // console.log('members: ', allMembers)
       const allUsers = await getAllUsers();
       // console.log('allUsers: ', allUsers)
@@ -31,7 +35,12 @@ function MessageUser() {
       setFilteredUsers(await filteredUsers);
       console.log(filteredUsers);
       localStorage.setItem("filteredUsers", JSON.stringify(filteredUsers));
+
+
+
     }
+
+
   }
 
   useEffect(() => {

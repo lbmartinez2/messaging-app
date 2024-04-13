@@ -1,9 +1,8 @@
 import React from "react";
 import { setCurrentId, setName } from "../helpers/functions";
+import { GrChannel } from "react-icons/gr";
 
 function ChannelItem(props) {
-
-
   return (
     <li
       className="channel-list-item"
@@ -13,6 +12,7 @@ function ChannelItem(props) {
         setName(props.channelName);
       }}
     >
+       <GrChannel />
       {props.channelName}
     </li>
   );

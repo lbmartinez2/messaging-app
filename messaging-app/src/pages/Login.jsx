@@ -1,18 +1,14 @@
 import React, { useContext, useEffect } from "react";
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom";
 import { HeaderContext } from "../main";
 import { BASE_URL } from "../helpers/constants";
 import { setCurrentId } from "../helpers/functions";
 
-
-
-
-
 function Login() {
   const navigate = useNavigate();
-  const {headers, handleHeadersChange} = useContext(HeaderContext)
+  const { headers, handleHeadersChange } = useContext(HeaderContext);
 
-  async function handleLogin({email, password}) {
+  async function handleLogin({ email, password }) {
     try {
       const data = await fetch(`${BASE_URL}/auth/sign_in`, {
         method: "POST",
@@ -28,23 +24,20 @@ function Login() {
         "access-token": data.headers.get("access-token"),
         client: data.headers.get("client"),
         uid: data.headers.get("uid"),
-        expiry: data.headers.get("expiry")
-      }
-
-  
+        expiry: data.headers.get("expiry"),
+      };
 
       localStorage.setItem("headers", JSON.stringify(authHeaders));
       handleHeadersChange(authHeaders);
 
-    //   console.log(uid, expiry, client, access_token);
+      //   console.log(uid, expiry, client, access_token);
 
       const response = await data.json();
       const activeUser = await response.data.id;
-      console.log(activeUser)
+      console.log(activeUser);
       localStorage.setItem("activeUser", await activeUser);
       setCurrentId(await activeUser);
-      return {response, authHeaders};
-      
+      return { response, authHeaders };
 
       //   if (response.errors) {
       //     throw response.errors.full_messages[0];
@@ -64,39 +57,45 @@ function Login() {
     };
 
     const loginData = await handleLogin(data);
-    
+
     // console.log("Status",  loginData.authHeaders["access-token"])
     if (loginData.authHeaders["access-token"]) {
-        console.log(loginData);
-        console.log("Login Success")
-        handleHeadersChange(loginData.authHeaders);
-        navigate("/app")
+      console.log(loginData);
+      console.log("Login Success");
+      handleHeadersChange(loginData.authHeaders);
+      navigate("/app");
     }
 
     e.target.reset();
-  };
-
+  }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="email">Email</label>
-      <input
-        name="email"
-        type="email"
-        id="email"
-        placeholder="Enter your email address"
-        required
-      />
-      <label htmlFor="password">Email</label>
-      <input
-        name="password"
-        type="password"
-        id="password"
-        placeholder="Enter your password"
-        required
-      />
-      <button type="submit">Login</button>
-    </form>
+    <>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="email">Email</label>
+        <input
+          name="email"
+          type="email"
+          id="email"
+          placeholder="Enter your email address"
+          required
+        />
+        <label htmlFor="password">Email</label>
+        <input
+          name="password"
+          type="password"
+          id="password"
+          placeholder="Enter your password"
+          required
+        />
+        <button type="submit">Login</button>
+      </form>
+
+      <div className="sign-up-container">
+        <span>Don't have an account yet?</span>
+        <Link to="/sign-up" className="sign-up-link">Sign-up Here!</Link>
+      </div>
+    </>
   );
 }
 

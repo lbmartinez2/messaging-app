@@ -41,6 +41,7 @@ function MessageInput(props) {
           className="message-input"
           name="message"
           placeholder="Enter message"
+          autoComplete="off"
         />
         <button type="submit" className="message-btn">
           Send

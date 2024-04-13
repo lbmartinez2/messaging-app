@@ -1,25 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { BASE_URL } from "../helpers/constants";
-import { getAuthHeaders, getChannelMembers, getCurrentId, getName, getRecentDMs, getUserChannels } from "../helpers/functions";
+import { getAuthHeaders, getCurrentId, getName } from "../helpers/functions";
 
 function MessageRetrieve(props) {
-
-
   const [messages, setMessages] = useState([]);
   const [currentName, setCurrentName] = useState('');
   const activeUser = Number(localStorage.getItem("activeUser"));
 
-  
-  
   useEffect(() => {
     async function fetchMessages() {
-      const currentID =  await getCurrentId(); 
-      // console.log(currentID);
-   
+      const currentID = await getCurrentId(); 
 
       try {
         const headers = getAuthHeaders();
-        
         const response = await fetch(
           `${BASE_URL}/messages?receiver_id=${currentID}&receiver_class=${props.class || "Channel"}`,
           {
@@ -32,15 +25,22 @@ function MessageRetrieve(props) {
         );
         const data = await response.json();
         setMessages(data.data);
-        // console.log(currentID);
       } catch (err) {
         console.error(err);
       }
     }
-    fetchMessages();
-    getRecentDMs();
+
+    const interval = setInterval(() => {
+      fetchMessages();
+    }, 2000);
+
+
+    return () => clearInterval(interval);
+  }, [props.class]);
+
+  useEffect(() => {
     setCurrentName(getName());
-  });
+  }, []);
 
   return (
     <div className="message-container">
@@ -48,6 +48,7 @@ function MessageRetrieve(props) {
       <ul className="message-body">
         {messages
           ? messages.map((message, index) => (
+              
               <li
                 key={index}
                 className={
@@ -56,6 +57,7 @@ function MessageRetrieve(props) {
                     : "receiver-msg"
                 }
               >
+                <span className="sender-uid">From: {message.sender.uid}</span>
                 {message.body}
               </li>
             ))

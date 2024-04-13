@@ -1,3 +1,4 @@
+import { Link, Navigate } from "react-router-dom";
 import { BASE_URL } from "../helpers/constants";
 
 
@@ -73,6 +74,10 @@ import { BASE_URL } from "../helpers/constants";
     } catch (err) {
       console.error(err);
     }
+  }
+
+  export function handleLogOut() {
+    localStorage.removeItem('headers');
   }
   
 

@@ -58,11 +58,21 @@ body, html, #root {
     width: 100dvw;
     height: 100dvh;
     font-family: "Poppins", sans-serif;
+    color: #011638;
 }
 
 li {
     list-style: none;
 }
+
+a {
+    text-decoration: none;
+}
+
+a:link, a:visited {
+    text-decoration: none;
+    color:#E8E9EB;
+  }
 
 #root {
     width: 100%;
@@ -84,28 +94,34 @@ li {
 }
 
 .side-nav-1 {
-    background-color: #eaebed;
-    padding: 1rem 0.5rem;
+    background-color: #E8E9EB;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 0.5rem;
     border-radius: 0.5rem;
     width: 50px;
+    justify-content: space-between;
+    box-shadow: 0.2rem 0rem 0.5rem hsla(160, 3%, 43%, 0.471) inset;
 }
 
 .side-nav-2 {
     width: 200px;
     display: flex;
     flex-direction: column;
-    background-color: #eaebed;
+    background-color: #E8E9EB;
     padding: 1rem 0.5rem;
     border-radius: 0.5rem;
+    box-shadow: -0.1rem 0rem 0.5rem hsla(160, 3%, 43%, 0.471) inset;
 }
 
 .content-container {
     display: flex;
     flex-direction: column;
-    background-color: #eaebed;
+    background-color: #E8E9EB;
     flex-grow: 1;
     padding: 1rem 0.5rem;
     border-radius: 0.5rem;
+    box-shadow: -0.1rem 0rem 0.5rem hsla(160, 3%, 43%, 0.471) ;
 }
 
 
@@ -118,12 +134,50 @@ li {
 }
 
 .channel-list-item {
-    padding: 0.25rem 0.5rem;
+    padding: 0.5rem 0.5rem;
     border-radius: 0.25rem;
-    background-color: #A3BAC3;
+    background-color: #011638;
 }
 
-.channel-name-input, .search-input {
+.channel-list-item:hover {
+    background-color: #ECA400;
+    color:  #011638;
+}
+
+
+.channel-name-input {
     width: auto;
+}
+
+.icons {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.log-out {
+    width: 70%;
+    aspect-ratio: 1;
+    justify-self: center;
+    align-self: center;
+    color:#011638;
+    padding: 0.25rem;
+    border-radius: 0.5rem;
+}
+
+.log-out svg {
+    width: 100%;
+    height: 100%;
+    justify-self: center;
+    align-self: center;
+
+}
+
+.log-out:hover {
+    color: #ECA400;
+    background-color: #011638;
+
+
+    transition: 0.2s ease-in;
 }
 

@@ -16,7 +16,7 @@ function CreateChannels() {
     async function fetchUserOptions() {
       try {
         const response = await getAllUsers();
-        const options = response.data.map((user) => ({
+        const options = await response.data.map((user) => ({
           value: user.id,
           label: user.uid,
         }));

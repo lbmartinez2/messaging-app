@@ -39,43 +39,57 @@
 
 .receiver-msg, .sender-msg {
     list-style: none;
-    padding: 0.5rem 1rem;
+    padding: 1rem 1rem;
     border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    max-width: 40%;
+    line-height: 1.5rem;
+    transition: 0.3s ease-in;
 }
 
 .receiver-msg {
-    background-color: #A3BAC3;
+    background-color: #6A706E;
     width: fit-content;
+    color: #E8E9EB;
 }
 
 .sender-msg {
-    background-color:#01A7C2;
+    
+    background-color:#0496FF;
     align-self: flex-end;
     width: fit-content;
+    color: #E8E9EB;
 }
 
 .user-list {
+    display: flex;
+    flex-direction: column;
     align-self: center;
     height: 100%;
+    margin-top: 0.25rem;
+    width: 100%;
+    gap: 0.25rem;
 }
 
 .user-list-item {
-    align-self: flex-start;
-    width: 100%;
-    height: 1.5rem;
-    list-style: none;
-    margin: 0;
-    padding: 0;
+    padding: 0.5rem 0.5rem;
+    border-radius: 0.25rem;
+    background-color: #ECA400;
+    color: #011638;
+}
+
+.user-list-item:hover {
+    background-color: #011638;
+    color:  #E8E9EB
 }
 
 .user-list-container {
-    padding: none;
-    flex: 1;
-    overflow-y: auto;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
+    gap: 0.25rem;
+    padding: 0.5rem 0rem;
 }
 
 .create-channel-form {
@@ -91,4 +105,18 @@
 
 .channel-list-header, .user-list-header {
     margin: 1rem 0 0.5rem 0;
+}
+
+.message-header {
+    font-weight: 700;
+    font-size: 2rem;
+    color: #011638;
+    background-color: #ffffff;
+    padding: 1rem 0.5rem;
+    border-radius: 0.5rem;
+}
+
+.sender-uid {
+    font-size: 0.8rem;
+    text-decoration: underline;
 }

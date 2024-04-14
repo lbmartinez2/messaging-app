@@ -5,7 +5,7 @@ import { useDebouncedCallback } from 'use-debounce';
 function Search(props) {
   const [users, setUsers] = useState([]);
   const [filteredUsers, setfilteredUsers] = useState([]);
-  const debouncedChange = useDebouncedCallback(handleChange, 500) 
+  const debouncedChange = useDebouncedCallback(handleChange, 500);
   
   useEffect(() => {
     async function fetchData() {
@@ -23,7 +23,6 @@ function Search(props) {
       setfilteredUsers(() => {
         return users.filter(user => user.email.includes(e.target.value));
       })
-  
   }
 
   return (

@@ -10,6 +10,7 @@ import Messages from "./pages/Messages.jsx";
 import Channels from "./pages/Channels.jsx";
 import { getCurrentId } from "./helpers/functions.js";
 import PrivateRoute from "./components/PrivateRoute.jsx";
+import SignUp from "./pages/SignUp.jsx";
 
 
 export const HeaderContext = createContext(null);
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
+  },
+  {
+    path: "/",
+    element: <SignUp />,
   },
   {
     path: "/app",

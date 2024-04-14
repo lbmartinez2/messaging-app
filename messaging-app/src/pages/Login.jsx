@@ -94,9 +94,9 @@ function Login() {
         <button type="submit">Login</button>
       </form>
 
-      <div className="sign-up-container">
+      <div className="sign-up-wrapper">
         <span>Don't have an account yet?</span>
-        <Link to="/sign-up" className="sign-up-link">Sign-up Here!</Link>
+        <Link to="/" className="sign-up-link">Sign-up Here!</Link>
       </div>
     </div >
   );

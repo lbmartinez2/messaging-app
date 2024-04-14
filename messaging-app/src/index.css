@@ -1,60 +1,83 @@
-/* :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+.filler-container {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-left: 6rem;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.welcome-heading {
+  background-image:linear-gradient(83.84deg, #011638 -6.87%, #0496FF 26.54%, #ECA400 58.58%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 3.5rem;
+  padding: 1rem 0;
+  animation: rainbow-text-simple-animation 0.75s ease forwards;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.welcome-heading:hover {
+  animation: rainbow-text-simple-animation-rev 0.5s ease forwards;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+
+
+.welcome-title {
+  font-weight: 600;
+  padding: 0.5rem 0;
+}
+
+.welcome-subtitle {
+  font-size: 2rem;
+}
+
+.subphotos {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem 0;
+}
+
+.image {
+  border-radius: 1rem;
+  box-shadow: 1rem 0.5rem 2rem #4e4e4e96;
+}
+
+.img1 {
+  width: 100%;
+}
+
+.img2, .img3 {
+  width: 50%;
+  margin: 0 0.25rem;
+}
+
+@keyframes rainbow-text-simple-animation {
+  0% {
+      background-size: 100%;
   }
-  a:hover {
-    color: #747bff;
+  80% {
+      background-size: 650%;
   }
-  button {
-    background-color: #f9f9f9;
+  100% {
+      background-size: 650%;
   }
-} */
+}
+
+@keyframes rainbow-text-simple-animation-rev {
+  0% {
+      background-size: 650%;
+  }
+  40% {
+      background-size: 650%;
+  }
+  100% {
+      background-size: 100%;
+  }
+}
+

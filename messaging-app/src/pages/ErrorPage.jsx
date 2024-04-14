@@ -1,5 +1,5 @@
 import React from 'react'
-import { useRouteError } from "react-router-dom";
+import { Link, useRouteError } from "react-router-dom";
 
 function ErrorPage() {
     const error = useRouteError();
@@ -10,9 +10,10 @@ function ErrorPage() {
     <div id="error-page">
       <h1 className='error-heading'>Oops!</h1>
       <p className='error-text'>Sorry, an unexpected error has occurred.</p>
-      <p className='error-text errot-subtext'>
+      <p className='error-text error-subtext'>
         <i>{error.statusText || error.message}</i>
       </p>
+      <Link className='home' to='https://www.youtube.com/watch?v=xvFZjo5PgG0'>Go Home</Link>
     </div>
   )
 }

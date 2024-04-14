@@ -13,6 +13,7 @@ function MessageUser() {
   const [seachTerm, setSearchTerm] = useState("");
 
   async function filterDMSearch() {
+  
     setFilteredUsers(JSON.parse(localStorage.getItem("filteredUsers")));
 
     if (!filteredUsers) {
@@ -48,6 +49,7 @@ function MessageUser() {
   }, []);
 
   function handleChange(e) {
+    filterDMSearch();
     const searchTerm = e.target.value;
     if (searchTerm.trim() !== "") {
       setfilteredFriends(() => {

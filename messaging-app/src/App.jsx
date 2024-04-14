@@ -1,21 +1,26 @@
 import "./App.css";
 import { BASE_URL } from "./helpers/constants";
-import { getAuthHeaders, handleLogOut, setCurrentId, setName } from "./helpers/functions";
+import {
+  getAuthHeaders,
+  handleLogOut,
+  setCurrentId,
+  setName,
+} from "./helpers/functions";
 import { Link, Navigate, Outlet, useNavigate } from "react-router-dom";
 import ChannelsGet from "./components/ChannelsGet";
 import CreateChannels from "./components/CreateChannels";
 import MessageUser from "./components/MessageUser";
 import { CiLogout } from "react-icons/ci";
 import { BiMessageSquareDetail, BiGroup } from "react-icons/bi";
-import React, { useEffect } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import React, { useEffect } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const headers = getAuthHeaders();
 export async function getAllUsers() {
   try {
     const data = await fetch(`${BASE_URL}/users`, {
-      method: 'GET',
+      method: "GET",
       headers: {
         "Content-Type": "application/json",
         ...headers,
@@ -34,14 +39,13 @@ function App() {
   const navigate = useNavigate();
 
   function handleLogOut() {
-    localStorage.removeItem('headers');
+    localStorage.removeItem("headers");
     navigate("/login");
   }
 
   useEffect(() => {
     success();
-  }, [])
-  
+  }, []);
 
   return (
     <>
@@ -50,20 +54,36 @@ function App() {
         <div className="side-nav-container">
           <div className="side-nav-1">
             <div className="icons">
-            <div className="logo">Logo</div>
-            <div className="channels"><BiGroup /></div>
-            <div className="messages"><BiMessageSquareDetail /></div>
+              <Link to="/">
+                <div className="logo">
+                  <span>MT</span>
+                </div>
+              </Link>
+              <div className="channels">
+                <BiGroup />
+              </div>
+              <div className="messages">
+                <BiMessageSquareDetail />
+              </div>
             </div>
-            <div className="log-out" onClick={handleLogOut}><CiLogout /></div>
-            
+            <div className="log-out" onClick={handleLogOut}>
+              <CiLogout />
+            </div>
           </div>
           <div className="side-nav-2">
-          <div className="channel-list-header">Create Channels</div>
+            <div className="channel-list-header">Create Channels</div>
+
             <CreateChannels />
+            <div className="line"></div>
             <div className="channel-list-header">User Channels</div>
+
             <ChannelsGet />
+            <div className="line"></div>
             <div className="user-list-header">Direct Messages</div>
-            <MessageUser />
+
+            <div className="message-wrapper">
+              <MessageUser />
+            </div>
           </div>
         </div>
         <div className="content-container">

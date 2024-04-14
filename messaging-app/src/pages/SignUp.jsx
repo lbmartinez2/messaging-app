@@ -8,7 +8,7 @@ import FillerContent from "../components/FillerContent";
 function SignUp() {
     const navigate = useNavigate();
   
-    async function handleLogin({ email, password, password_confirmation }) {
+    async function handleLogin({ email, password, password_confirmation}) {
       try {
         const data = await fetch(`${BASE_URL}/auth`, {
           method: "POST",
@@ -21,10 +21,9 @@ function SignUp() {
             password_confirmation
           }),
         });
-  
         const response = await data.json();
-        return response.data;
-        console.log("signup successful: ", response.data);
+        console.log("signup status: ", response.data);
+        return response;
       } catch (err) {
         console.error(err);
       }
@@ -42,8 +41,8 @@ function SignUp() {
   
       const signupData = await handleLogin(data);
   
-      if (signupData.id) {
-        console.log("sign-in id: ",signupData.id);
+      if (signupData.data.id) {
+        console.log("sign-in id: ",signupData.data.id);
         navigate("/login");
       }
   

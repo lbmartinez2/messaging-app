@@ -1,6 +1,7 @@
 import React from "react";
 import { BASE_URL } from "../helpers/constants";
 import { getAuthHeaders, getCurrentId } from "../helpers/functions";
+import { LuSendHorizonal } from "react-icons/lu";
 
 function MessageInput(props) {
   const headers = getAuthHeaders();
@@ -44,7 +45,7 @@ function MessageInput(props) {
           autoComplete="off"
         />
         <button type="submit" className="message-btn">
-          Send
+        <LuSendHorizonal />
         </button>
       </form>
     </>

@@ -28,10 +28,12 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
+    errorElement: <ErrorPage />,
   },
   {
     path: "/",
     element: <SignUp />,
+    errorElement: <ErrorPage />,
   },
   {
     path: "/app",

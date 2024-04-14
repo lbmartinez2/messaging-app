@@ -1,17 +1,21 @@
 import React, { useEffect, useRef, useState } from "react";
 import { BASE_URL } from "../helpers/constants";
 import { getAuthHeaders, getCurrentId, getName } from "../helpers/functions";
+import Popup from "reactjs-popup";
+import AddMembers from "./AddMembers";
+import { IoPersonAddOutline } from "react-icons/io5";
 
 function MessageRetrieve(props) {
   const [messages, setMessages] = useState([]);
   const [currentName, setCurrentName] = useState("");
+  const [currentId, setCurrentId] = useState("");
   const activeUser = Number(localStorage.getItem("activeUser"));
   const messagesListRef = useRef(null);
 
   useEffect(() => {
     async function fetchMessages() {
       const currentID = await getCurrentId();
-
+      setCurrentId(currentID)
       try {
         const headers = getAuthHeaders();
         const response = await fetch(
@@ -28,6 +32,7 @@ function MessageRetrieve(props) {
         );
         const data = await response.json();
         setMessages(data.data);
+
       } catch (err) {
         console.error(err);
       }
@@ -49,10 +54,22 @@ function MessageRetrieve(props) {
     }
   }, [messages]);
 
-
   return (
     <div className="message-container">
-      <div className="message-header">{currentName}</div>
+      <div className="message-header-wrapper">
+        <div className="message-header">{currentName}</div>
+        {props.class === "Channel" ? (
+           <Popup
+           trigger={<div className="add-members-btn">
+           <IoPersonAddOutline />
+         </div>}
+           modal
+           nested
+         >
+             <AddMembers channelId={currentId || null}/>
+          </Popup>
+        ) : null}
+      </div>
       <ul className="message-body" ref={messagesListRef}>
         {messages
           ? messages.map((message, index) => (

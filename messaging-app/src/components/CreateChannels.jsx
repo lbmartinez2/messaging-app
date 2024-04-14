@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
-import { BASE_URL } from "../helpers/constants";
+import { BASE_URL, customStyles } from "../helpers/constants";
 import { getAuthHeaders } from "../helpers/functions";
 import AsyncSelect from "react-select/async";
 import { useState } from "react";
 import { getAllUsers } from "../App";
 
 function CreateChannels() {
+
   const headers = getAuthHeaders();
   const [selectedOption, setSelectedOption] = useState(null);
   const [userOptions, setUserOptions] = useState([]);
@@ -88,6 +89,7 @@ function CreateChannels() {
         }}
         onChange={setSelectedOption}
         value={selectedOption}
+        styles={customStyles}
         isMulti
       />
         <button type="submit" className="channel-create-btn btn">

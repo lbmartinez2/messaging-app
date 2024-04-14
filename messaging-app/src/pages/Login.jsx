@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { HeaderContext } from "../main";
 import { BASE_URL } from "../helpers/constants";
 import { setCurrentId } from "../helpers/functions";
+import FillerContent from "../components/FillerContent";
 
 function Login() {
   const navigate = useNavigate();
@@ -70,6 +71,8 @@ function Login() {
   }
 
   return (
+    <>
+    <FillerContent />
     <div className="login-container">
          <h1 className="login-header">Welcome! </h1>
       <h3 className="login-subheader">Log-in your details to proceed.</h3>
@@ -99,6 +102,7 @@ function Login() {
         <Link to="/" className="sign-up-link">Sign-up Here!</Link>
       </div>
     </div >
+    </>
   );
 }
 

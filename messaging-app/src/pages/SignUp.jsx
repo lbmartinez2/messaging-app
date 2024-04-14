@@ -8,7 +8,7 @@ import FillerContent from "../components/FillerContent";
 function SignUp() {
     const navigate = useNavigate();
   
-    async function handleLogin({ email, password }) {
+    async function handleLogin({ email, password, password_confirmation }) {
       try {
         const data = await fetch(`${BASE_URL}/auth`, {
           method: "POST",
@@ -23,8 +23,8 @@ function SignUp() {
         });
   
         const response = await data.json();
+        return response.data;
         console.log("signup successful: ", response.data);
-  
       } catch (err) {
         console.error(err);
       }
@@ -42,10 +42,8 @@ function SignUp() {
   
       const signupData = await handleLogin(data);
   
-      if (loginData.authHeaders["access-token"]) {
-        console.log(signupData);
-        console.log("Sign-up");
-        handleHeadersChange(loginData.authHeaders);
+      if (signupData.id) {
+        console.log("sign-in id: ",signupData.id);
         navigate("/login");
       }
   

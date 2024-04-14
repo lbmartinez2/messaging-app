@@ -48,6 +48,12 @@
   box-shadow: 1rem 0.5rem 2rem #4e4e4e96;
 }
 
+.image:hover{
+  transform: scale(104%);
+  transition: 0.2s ease-in-out;
+  opacity: 0.8;
+}
+
 .img1 {
   width: 100%;
 }
